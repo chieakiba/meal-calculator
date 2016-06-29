@@ -4,10 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Meal Calculator</title>
+    <link rel='stylesheet' href='css/normalize.css'>
+    <link rel='stylesheet' href='css/style.css'>
 </head>
 
 <body>
-
+    <h1>Tallying Up Bills Made Easy</h1>
+    <table class='dinerMealDrink'>
+        <tr class='row1'>
+            <td>Diner Name</td>
+            <td>Meal</td>
+            <td>Drink</td>
+            <td><strong>Total Bill*</strong></td>
+        </tr>
+        <tr class='row2'>
+            <td>Sally</td>
+            <td>Spaghetti</td>
+            <td>Carbernet Sauvignon</td>
+            <td class='total'></td>
+        </tr>
+        <tr class='row3'>
+            <td>Richard</td>
+            <td>Lasagna</td>
+            <td>Grappa</td>
+            <td class='total'></td>
+        </tr>
+        <tr class='row4'>
+            <td>David</td>
+            <td>Eggplant Parmigiano</td>
+            <td>Chianti</td>
+            <td class='total'></td>
+        </tr>
+        <tr class='row5'>
+            <td>Jessica</td>
+            <td>Quattro Formaggi Pizza</td>
+            <td>Riesling</td>
+            <td class='total'></td>
+        </tr>
+        <tr class='row6'>
+            <td>Total Bill for the Dinner</td>
+            <td></td>
+            <td></td>
+            <td class='final'></td>
+        </tr>
+    </table>
+    <div class='assumptions'>
+        <p>*Assuming that tax is 10% and the diners tipped 20%</p>
+    </div>
 </body>
+<script src='node_modules/jquery/dist/jquery.js'></script>
+<script src='js/meal_calculator.js'></script>
 
 </html>
