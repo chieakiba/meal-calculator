@@ -1,0 +1,40 @@
+/*Title*/
+
+h1 {
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+/*Table*/
+
+.dinerMealDrink {
+    text-align: center;
+    border: solid 1px black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    line-height: 4em;
+    margin-top: 4em;
+}
+
+.row1,
+.row3,
+.row5 {
+    background-color: rgba(224, 224, 224, .7);
+}
+
+.row2,
+.row4 {
+    background-color: rgba(189, 189, 189, .7);
+}
+
+
+/*Disclaimer*/
+
+.assumptions {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
