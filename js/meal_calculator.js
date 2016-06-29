@@ -1,4 +1,5 @@
 'use strict';
+
 //Meal price
 var MealPrice = {
     'spaghetti': 10,
@@ -15,7 +16,8 @@ var DrinkPrice = {
     'riesling': 5
 };
 
-
+//Diner objects and constructor functions
+/* @param orders is object: {food: [], drinks: []}  */
 var Diner = function (orders) {
     this.orders = orders;
 };
@@ -24,18 +26,6 @@ var sally = new Diner({
     food: ['spaghetti'],
     drink: ['cabernet sauvignon']
 });
-//var sally_total_meal = 0;
-//for (var i = 0; i < sally.orders.food.length; i++) {
-//    var food = MealPrice[sally.orders.food[i]];
-//    if (food !== undefined) {
-//        sally_total_meal += food;
-//    }
-//
-//}
-//var meal = MealPrice[sally.orders.food[i]];
-//var drink = DrinkPrice[sally.orders.drink];
-//var total = meal + drink;
-
 console.log(sally.orders);
 
 var richard = new Diner({
@@ -55,10 +45,12 @@ var jessica = new Diner({
     drink: ['riesling']
 });
 console.log(jessica.orders);
-//Diner objects
+
 var diners = [sally, richard, david, jessica];
 console.log(total(diners));
 
+//Total bill per person and overall bill
+/* @param orders is var diners (see above).  */
 function total(diners) {
     var totalBill = 0;
     for (var i = 0; i < diners.length; i++) {
@@ -66,7 +58,7 @@ function total(diners) {
         var totalFood = 0;
         for (var j = 0; j < diner.orders.food.length; j++) {
             var food = MealPrice[diner.orders.food[j]];
-            if (food !== undefined) {
+            if (!food) {
                 totalFood += food;
             } else {
                 console.log('One or more of the dishes are not listed on the menu!');
@@ -78,7 +70,7 @@ function total(diners) {
         var totalDrink = 0;
         for (var k = 0; k < diner.orders.drink.length; k++) {
             var drink = DrinkPrice[diner.orders.drink[k]];
-            if (drink !== undefined) {
+            if (!drink) {
                 totalDrink += drink;
             } else {
                 console.log('One or more of the drinks are not listed on the menu!');
@@ -88,11 +80,5 @@ function total(diners) {
     }
     return totalBill;
 }
-
-//Price
-var Price = function (prices) {
-    this.prices = prices;
-}
-
 
 //Calculating total price of the meal
