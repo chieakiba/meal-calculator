@@ -47,38 +47,49 @@ var jessica = new Diner({
 console.log(jessica.orders);
 
 var diners = [sally, richard, david, jessica];
-console.log(total(diners));
-
-//Total bill per person and overall bill
-/* @param orders is var diners (see above).  */
-function total(diners) {
-    var totalBill = 0;
-    for (var i = 0; i < diners.length; i++) {
-        var diner = diners[i];
-        var totalFood = 0;
-        for (var j = 0; j < diner.orders.food.length; j++) {
-            var food = MealPrice[diner.orders.food[j]];
-            if (!food) {
-                totalFood += food;
-            } else {
-                console.log('One or more of the dishes are not listed on the menu!');
-            }
-        }
-
-        totalBill += totalFood;
-
-        var totalDrink = 0;
-        for (var k = 0; k < diner.orders.drink.length; k++) {
-            var drink = DrinkPrice[diner.orders.drink[k]];
-            if (!drink) {
-                totalDrink += drink;
-            } else {
-                console.log('One or more of the drinks are not listed on the menu!');
-            }
-        }
-        totalBill += totalDrink;
-    }
-    return totalBill;
-}
 
 //Calculating total price of the meal
+
+
+$(document).ready(function () {
+    //Total bill per person and overall bill
+    /* @param orders is var diners (see above).  */
+    function total(diners) {
+        var totalBill = 0;
+        for (var i = 0; i < diners.length; i++) {
+            var diner = diners[i];
+            var totalFood = 0;
+            for (var j = 0; j < diner.orders.food.length; j++) {
+                var food = MealPrice[diner.orders.food[j]];
+                if (food !== undefined) {
+                    totalFood += food;
+                } else {
+                    console.log('One or more of the dishes are not listed on the menu!');
+                }
+            }
+            totalBill += totalFood;
+
+            var totalDrink = 0;
+            for (var k = 0; k < diner.orders.drink.length; k++) {
+                var drink = DrinkPrice[diner.orders.drink[k]];
+                if (drink !== undefined) {
+                    totalDrink += drink;
+                } else {
+                    console.log('One or more of the drinks are not listed on the menu!');
+                }
+            }
+            totalBill += totalDrink;
+        }
+        return totalBill;
+    }
+    var totalForDiners = Math.round(total(diners));
+    console.log(totalForDiners);
+    var totalWithTax = Math.round(totalForDiners * 1.10);
+    console.log(totalWithTax);
+    var totalWithTip = Math.round(totalWithTax * 1.20);
+    console.log(totalWithTip);
+    var split = Math.round(totalWithTip / 4);
+    console.log(split);
+    $('.final').append('$' + totalWithTip);
+    $('.total').append('$' + split);
+})
