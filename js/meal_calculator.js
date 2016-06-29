@@ -61,7 +61,7 @@ $(document).ready(function () {
             var totalFood = 0;
             for (var j = 0; j < diner.orders.food.length; j++) {
                 var food = MealPrice[diner.orders.food[j]];
-                if (food !== undefined) {
+                if (food !== undefined && food !== '') {
                     totalFood += food;
                 } else {
                     console.log('One or more of the dishes are not listed on the menu!');
@@ -72,7 +72,7 @@ $(document).ready(function () {
             var totalDrink = 0;
             for (var k = 0; k < diner.orders.drink.length; k++) {
                 var drink = DrinkPrice[diner.orders.drink[k]];
-                if (drink !== undefined) {
+                if (drink !== undefined && drink !== '') {
                     totalDrink += drink;
                 } else {
                     console.log('One or more of the drinks are not listed on the menu!');
