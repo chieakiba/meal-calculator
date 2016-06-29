@@ -49,8 +49,6 @@ console.log(jessica.orders);
 var diners = [sally, richard, david, jessica];
 
 //Calculating total price of the meal
-
-
 $(document).ready(function () {
     //Total bill per person and overall bill
     /* @param orders is var diners (see above).  */
